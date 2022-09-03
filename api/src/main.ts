@@ -1,6 +1,7 @@
 import { MainController } from "./controller/mainController";
 import express, { Request, Response } from "express";
 import dotenv from "dotenv";
+import cors from "cors";
 
 dotenv.config();
 
@@ -9,6 +10,7 @@ const PORT = process.env.PORT || 3001;
 const Controller: MainController = new MainController();
 
 app.use(express.json());
+app.use(cors());
 
 app.listen(PORT, () => {
   console.log(`Connected succesfully, listen to ${PORT}`);
